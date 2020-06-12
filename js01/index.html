@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js01 | Drum Kit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="buttons">
+        <div id="key-56" class="button">a</div>
+        <div id="key-83" class="button">s</div>
+        <div id="key-68" class="button">d</div>
+        <div id="key-70" class="button">f</div>
+    </div>
+    <div id="key-32" class="button">space</div>
+
+    <audio keyCode="key-32" src="./sounds/kick.wav"></audio>
+    <audio keyCode="key-65" src="./sounds/hatClosed.wav"></audio>
+    <audio keyCode="key-83" src="./sounds/snare.wav"></audio>
+    <audio keyCode="key-68" src="./sounds/clapReverb.wav"></audio>
+    <audio keyCode="key-70" src="./sounds/shaker.wav"></audio>
+
+    <script>
+        window.addEventListener('keydown', function(e){
+            const audio = document.querySelector(`audio[keyCode="key-${e.keyCode}"]`);
+            console.log(audio)
+            if(!audio) return;
+            audio.curentTime = 0;
+            audio.play()
+        })
+    </script>
+</body>
+<footer>
+</footer>
+</html>
