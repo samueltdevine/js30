@@ -1,0 +1,52 @@
+body {
+  height: 100vh;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Helvetica, Arial, sans-serif;
+}
+.clock {
+  position: relative;
+}
+.tick {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  border-bottom: black solid 6px;
+  position: absolute;
+  width: 1px;
+  height: 100px;
+  transform-origin: top;
+  transform: rotate(180);
+}
+
+.tick div {
+  position: absolute;
+  top: 115px;
+  text-align: center;
+}
+
+.second {
+  width: 2px;
+  height: 80px;
+}
+
+.minute {
+  width: 4px;
+  height: 60px;
+}
+.hour {
+  width: 6px;
+  height: 40px;
+}
+
+.hand {
+  position: absolute;
+  transform-origin: top;
+  background-color: black;
+  transform: rotate();
+  transition: all 0.2s ease-in-out;
+  transition-timing-function: cubic-bezier(0.05, 2.09, 0.24, 0.57);
+}
