@@ -1,42 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>js03 | Header Creator</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
     <h1><span class="custom-color">js03</span> | Header Creator</h1>
-    <textarea id="titleSelector" name="title" id="" cols="30" rows="1">Type Your Type</textarea>
-    <div style="display: flex; align-items: center; justify-content: space-between;">
-        <div style="display: flex; align-items: center;">
-            <h3>Color Choice</h3>
-            <input type="color" id="color" name="color" min="0" max="360" value="#00A7B3">
-        </div>
-        <button id="sendButton" onclick="sendHeader">Save Header</button>
-        <div><a href="yourpage.html">Your Page</a></div>
+    <textarea id="titleSelector" name="title" id="" cols="30" rows="1">
+Your Type Here</textarea
+    >
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      "
+    >
+      <div style="display: flex; align-items: center;">
+        <h3>Color Choice</h3>
+        <input
+          type="color"
+          id="color"
+          name="color"
+          min="0"
+          max="360"
+          value="#00A7B3"
+        />
+      </div>
+      <div>
+        text size
+        <input type="range" id="textSizer" min="5" max="12" />
+      </div>
     </div>
     <script>
-        const titleSelector = document.querySelector(`textarea`);
-        titleSelector.focus()
-        titleSelector.setSelectionRange(titleSelector.value.length, titleSelector.value.length)
+      const titleSelector = document.querySelector(`textarea`);
+      titleSelector.focus();
+      titleSelector.setSelectionRange(
+        titleSelector.value.length,
+        titleSelector.value.length
+      );
 
-        let root = document.documentElement;
-        function updateColor() {
-            let color = document.getElementById('color').value
-            root.style.setProperty(`--custom-color`, color)
-        }
-        root.addEventListener("change", updateColor, false)
-        document.getElementById("sendButton").addEventListener("click", sendHeader)
+      let root = document.documentElement;
+      function updateColor() {
+        let color = document.getElementById("color").value;
+        root.style.setProperty(`--custom-color`, color);
+      }
+      function updateTextSize() {
+        let textSize = document.getElementById("textSizer").value;
+        textSize = `${textSize}vh`;
+        root.style.setProperty(`--text-height`, textSize);
+      }
+      root.addEventListener("change", updateTextSize, false);
+      root.addEventListener("change", updateColor, false);
+      document
+        .getElementById("sendButton")
+        .addEventListener("click", sendHeader);
 
-        function sendHeader() {
-            const text = document.getElementById("titleSelector").value
-            console.log(text)
-        }    
+      function sendHeader() {
+        const text = document.getElementById("titleSelector").value;
+        console.log(text);
+      }
     </script>
-</body>
-
+  </body>
 </html>
